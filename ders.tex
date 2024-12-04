@@ -1,0 +1,1518 @@
+%% Created by Maple 2015.0 (IBM INTEL NT)
+%% Source Worksheet: ders.mws
+%% Generated: Thu Oct 03 12:21:12 2024
+\documentclass{article}
+\usepackage{maple2e}
+ \def\emptyline{\vspace{12pt}}
+\DefineParaStyle{Error}
+\DefineParaStyle{Maple Output}
+\DefineParaStyle{Maple Output}
+\DefineParaStyle{Text Output}
+\DefineParaStyle{Warning}
+\DefineCharStyle{2D Math}
+\DefineCharStyle{2D Output}
+\begin{document}
+\pagestyle{empty}
+\begin{maplegroup}
+\begin{mapleinput}
+\mapleinline{active}{1d}{abs(x)*sqrt(x);}{%
+}
+\end{mapleinput}
+
+\mapleresult
+\begin{maplelatex}
+\mapleinline{inert}{2d}{abs(x)*x^(1/2);}{%
+\[
+ \left|  \! \,x\, \!  \right| \,\sqrt{x}
+\]
+%
+}
+\end{maplelatex}
+
+\end{maplegroup}
+\begin{maplegroup}
+\begin{mapleinput}
+\mapleinline{active}{1d}{# test}{%
+}
+\end{mapleinput}
+
+\end{maplegroup}
+\begin{maplegroup}
+\begin{mapleinput}
+\mapleinline{active}{1d}{# Package commands}{%
+}
+\end{mapleinput}
+
+\end{maplegroup}
+\begin{maplegroup}
+\begin{mapleinput}
+\mapleinline{active}{1d}{Optimization[NLPSolve](sin(x)/x,x=1.15); # Importing and using
+specific method of package.}{%
+}
+\end{mapleinput}
+
+\mapleresult
+\begin{maplettyout}
+Error, (in Optimization:-NLPSolve) unexpected parameters: x = 1.15
+\end{maplettyout}
+
+\end{maplegroup}
+\begin{maplegroup}
+\begin{mapleinput}
+\mapleinline{active}{1d}{# Importing whole package}{%
+}
+\end{mapleinput}
+
+\begin{mapleinput}
+\mapleinline{active}{1d}{with(Optimization);}{%
+}
+\end{mapleinput}
+
+\mapleresult
+\begin{maplelatex}
+\mapleinline{inert}{2d}{[ImportMPS, Interactive, LPSolve, LSSolve, Maximize, Minimize,
+NLPSolve, QPSolve];}{%
+\[
+[\mathit{ImportMPS}, \,\mathit{Interactive}, \,\mathit{LPSolve}, 
+\,\mathit{LSSolve}, \,\mathit{Maximize}, \,\mathit{Minimize}, \,
+\mathit{NLPSolve}, \,\mathit{QPSolve}]
+\]
+%
+}
+\end{maplelatex}
+
+\end{maplegroup}
+\begin{maplegroup}
+\begin{mapleinput}
+\mapleinline{active}{1d}{with(plots);}{%
+}
+\end{mapleinput}
+
+\mapleresult
+\begin{maplelatex}
+\mapleinline{inert}{2d}{[animate, animate3d, animatecurve, arrow, changecoords, complexplot,
+complexplot3d, conformal, conformal3d, contourplot, contourplot3d,
+coordplot, coordplot3d, densityplot, display, dualaxisplot, fieldplot,
+fieldplot3d, gradplot, gradplot3d, implicitplot, implicitplot3d,
+inequal, interactive, interactiveparams, intersectplot, listcontplot,
+listcontplot3d, listdensityplot, listplot, listplot3d, loglogplot,
+logplot, matrixplot, multiple, odeplot, pareto, plotcompare,
+pointplot, pointplot3d, polarplot, polygonplot, polygonplot3d,
+polyhedra_supported, polyhedraplot, rootlocus, semilogplot, setcolors,
+setoptions, setoptions3d, shadebetween, spacecurve, sparsematrixplot,
+surfdata, textplot, textplot3d, tubeplot];}{%
+\maplemultiline{
+[\mathit{animate}, \,\mathit{animate3d}, \,\mathit{animatecurve}
+, \,\mathit{arrow}, \,\mathit{changecoords}, \,\mathit{
+complexplot}, \,\mathit{complexplot3d},  \\
+\mathit{conformal}, \,\mathit{conformal3d}, \,\mathit{contourplot
+}, \,\mathit{contourplot3d}, \,\mathit{coordplot}, \,\mathit{
+coordplot3d},  \\
+\mathit{densityplot}, \,\mathit{display}, \,\mathit{dualaxisplot}
+, \,\mathit{fieldplot}, \,\mathit{fieldplot3d}, \,\mathit{
+gradplot}, \,\mathit{gradplot3d},  \\
+\mathit{implicitplot}, \,\mathit{implicitplot3d}, \,\mathit{
+inequal}, \,\mathit{interactive}, \,\mathit{interactiveparams}, 
+\,\mathit{intersectplot},  \\
+\mathit{listcontplot}, \,\mathit{listcontplot3d}, \,\mathit{
+listdensityplot}, \,\mathit{listplot}, \,\mathit{listplot3d}, \,
+\mathit{loglogplot}, \,\mathit{logplot},  \\
+\mathit{matrixplot}, \,\mathit{multiple}, \,\mathit{odeplot}, \,
+\mathit{pareto}, \,\mathit{plotcompare}, \,\mathit{pointplot}, \,
+\mathit{pointplot3d},  \\
+\mathit{polarplot}, \,\mathit{polygonplot}, \,\mathit{
+polygonplot3d}, \,\mathit{polyhedra\_supported}, \,\mathit{
+polyhedraplot},  \\
+\mathit{rootlocus}, \,\mathit{semilogplot}, \,\mathit{setcolors}
+, \,\mathit{setoptions}, \,\mathit{setoptions3d}, \,\mathit{
+shadebetween},  \\
+\mathit{spacecurve}, \,\mathit{sparsematrixplot}, \,\mathit{
+surfdata}, \,\mathit{textplot}, \,\mathit{textplot3d}, \,\mathit{
+tubeplot}] }
+%
+}
+\end{maplelatex}
+
+\end{maplegroup}
+\begin{maplegroup}
+\begin{mapleinput}
+\mapleinline{active}{1d}{with(CodeGeneration);}{%
+}
+\end{mapleinput}
+
+\mapleresult
+\begin{maplelatex}
+\mapleinline{inert}{2d}{[C, CSharp, Fortran, IntermediateCode, Java, JavaScript,
+LanguageDefinition, Matlab, Names, Perl, Python, R, Save, Translate,
+VisualBasic];}{%
+\maplemultiline{
+[C, \,\mathit{CSharp}, \,\mathit{Fortran}, \,\mathit{
+IntermediateCode}, \,\mathit{Java}, \,\mathit{JavaScript}, \,
+\mathit{LanguageDefinition}, \,\mathit{Matlab},  \\
+\mathit{Names}, \,\mathit{Perl}, \,\mathit{Python}, \,R, \,
+\mathit{Save}, \,\mathit{Translate}, \,\mathit{VisualBasic}] }
+%
+}
+\end{maplelatex}
+
+\end{maplegroup}
+\begin{maplegroup}
+\begin{mapleinput}
+\mapleinline{active}{1d}{C(sqrt(5));}{%
+}
+\end{mapleinput}
+
+\mapleresult
+\begin{maplettyout}
+cg = sqrt(0.5e1);
+\end{maplettyout}
+
+\emptyline
+\end{maplegroup}
+\begin{maplegroup}
+\begin{mapleinput}
+\mapleinline{active}{1d}{Java(5*5*5);}{%
+}
+\end{mapleinput}
+
+\mapleresult
+\begin{maplettyout}
+cg0 = 125;
+\end{maplettyout}
+
+\emptyline
+\end{maplegroup}
+\begin{maplegroup}
+\begin{mapleinput}
+\mapleinline{active}{1d}{x=5;x^2*c^5;}{%
+}
+\end{mapleinput}
+
+\mapleresult
+\begin{maplelatex}
+\mapleinline{inert}{2d}{x = 5;}{%
+\[
+x=5
+\]
+%
+}
+\end{maplelatex}
+
+\begin{maplelatex}
+\mapleinline{inert}{2d}{x^2*c^5;}{%
+\[
+x^{2}\,c^{5}
+\]
+%
+}
+\end{maplelatex}
+
+\end{maplegroup}
+\begin{maplegroup}
+\begin{mapleinput}
+\mapleinline{active}{1d}{Java(\%);}{%
+}
+\end{mapleinput}
+
+\mapleresult
+\begin{maplettyout}
+cg1 = x * x * Math.pow(c, 0.5e1);
+\end{maplettyout}
+
+\emptyline
+\end{maplegroup}
+\begin{maplegroup}
+\begin{mapleinput}
+\mapleinline{active}{1d}{# Removing package from scope.}{%
+}
+\end{mapleinput}
+
+\end{maplegroup}
+\begin{maplegroup}
+\begin{mapleinput}
+\mapleinline{active}{1d}{unwith(CodeGeneration);}{%
+}
+\end{mapleinput}
+
+\end{maplegroup}
+\begin{maplegroup}
+\begin{mapleinput}
+\mapleinline{active}{1d}{C(2);}{%
+}
+\end{mapleinput}
+
+\mapleresult
+\begin{maplelatex}
+\mapleinline{inert}{2d}{C(2);}{%
+\[
+\mathrm{C}(2)
+\]
+%
+}
+\end{maplelatex}
+
+\end{maplegroup}
+\begin{maplegroup}
+\begin{mapleinput}
+\mapleinline{active}{1d}{Java(2*5);}{%
+}
+\end{mapleinput}
+
+\mapleresult
+\begin{maplelatex}
+\mapleinline{inert}{2d}{Java(10);}{%
+\[
+\mathrm{Java}(10)
+\]
+%
+}
+\end{maplelatex}
+
+\end{maplegroup}
+\begin{maplegroup}
+\begin{mapleinput}
+\mapleinline{active}{1d}{evalf(sin(15));}{%
+}
+\end{mapleinput}
+
+\mapleresult
+\begin{maplelatex}
+\mapleinline{inert}{2d}{.6502878402;}{%
+\[
+0.6502878402
+\]
+%
+}
+\end{maplelatex}
+
+\end{maplegroup}
+\begin{maplegroup}
+\begin{mapleinput}
+\mapleinline{active}{1d}{evalf[30](sin(15));}{%
+}
+\end{mapleinput}
+
+\mapleresult
+\begin{maplelatex}
+\mapleinline{inert}{2d}{.650287840157116865829740270989;}{%
+\[
+0.650287840157116865829740270989
+\]
+%
+}
+\end{maplelatex}
+
+\end{maplegroup}
+\begin{maplegroup}
+\begin{mapleinput}
+\mapleinline{active}{1d}{evalf[100](sin(15));}{%
+}
+\end{mapleinput}
+
+\mapleresult
+\begin{maplelatex}
+\mapleinline{inert}{2d}{.65028784015711686582974027098887032521455192201407838977327914275746
+18185085671538477846163034510338;}{%
+\maplemultiline{
+
+0.6502878401571168658297402709888703252145519220140783897732791427
+\backslash  \\
+574618185085671538477846163034510338 }
+%
+}
+\end{maplelatex}
+
+\end{maplegroup}
+\begin{maplegroup}
+\begin{mapleinput}
+\mapleinline{active}{1d}{evalf(sin(pi/6));}{%
+}
+\end{mapleinput}
+
+\mapleresult
+\begin{maplelatex}
+\mapleinline{inert}{2d}{sin(.1666666667*pi);}{%
+\[
+\mathrm{sin}(0.1666666667\,\pi )
+\]
+%
+}
+\end{maplelatex}
+
+\end{maplegroup}
+\begin{maplegroup}
+\begin{mapleinput}
+\mapleinline{active}{1d}{evalf(sin(Pi/6));}{%
+}
+\end{mapleinput}
+
+\mapleresult
+\begin{maplelatex}
+\mapleinline{inert}{2d}{.5000000000;}{%
+\[
+0.5000000000
+\]
+%
+}
+\end{maplelatex}
+
+\end{maplegroup}
+\begin{maplegroup}
+\begin{mapleinput}
+\mapleinline{active}{1d}{degree := a -> (Pi/180)*a;}{%
+}
+\end{mapleinput}
+
+\mapleresult
+\begin{maplettyout}
+Error, attempting to assign to `degree` which is protected.  Try
+declaring `local degree`; see ?protect for details.
+\end{maplettyout}
+
+\end{maplegroup}
+\begin{maplegroup}
+\begin{mapleinput}
+\mapleinline{active}{1d}{(30);}{%
+}
+\end{mapleinput}
+
+\mapleresult
+\begin{maplelatex}
+\mapleinline{inert}{2d}{1/6*Pi;}{%
+\[
+{\displaystyle \frac {\pi }{6}} 
+\]
+%
+}
+\end{maplelatex}
+
+\end{maplegroup}
+\begin{maplegroup}
+\begin{mapleinput}
+\mapleinline{active}{1d}{degree := a;}{%
+}
+\end{mapleinput}
+
+\mapleresult
+\begin{maplettyout}
+Error, attempting to assign to `degree` which is protected.  Try
+declaring `local degree`; see ?protect for details.
+\end{maplettyout}
+
+\end{maplegroup}
+\begin{maplegroup}
+\begin{mapleinput}
+\mapleinline{active}{1d}{degree = a;}{%
+}
+\end{mapleinput}
+
+\mapleresult
+\begin{maplelatex}
+\mapleinline{inert}{2d}{degree = a;}{%
+\[
+\mathit{degree}=a
+\]
+%
+}
+\end{maplelatex}
+
+\end{maplegroup}
+\begin{maplegroup}
+\begin{mapleinput}
+\mapleinline{active}{1d}{degree(30);}{%
+}
+\end{mapleinput}
+
+\mapleresult
+\begin{maplelatex}
+\mapleinline{inert}{2d}{0;}{%
+\[
+0
+\]
+%
+}
+\end{maplelatex}
+
+\end{maplegroup}
+\begin{maplegroup}
+\begin{mapleinput}
+\mapleinline{active}{1d}{local degree;}{%
+}
+\end{mapleinput}
+
+\mapleresult
+\begin{maplettyout}
+Warning, A new binding for the name `degree` has been created. The
+global instance of this name is still accessible using the :- prefix,
+:-`degree`.  See ?protect for details.
+\end{maplettyout}
+
+\end{maplegroup}
+\begin{maplegroup}
+\begin{mapleinput}
+\mapleinline{active}{1d}{assume(x, real);}{%
+}
+\end{mapleinput}
+
+\end{maplegroup}
+\begin{maplegroup}
+\begin{mapleinput}
+\mapleinline{active}{1d}{expand(ln(x/(1-x)^2));}{%
+}
+\end{mapleinput}
+
+\mapleresult
+\begin{maplelatex}
+\mapleinline{inert}{2d}{ln(x/(1-x)^2);}{%
+\[
+\mathrm{ln}({\displaystyle \frac {\mathit{x\symbol{126}}}{(1 - 
+\mathit{x\symbol{126}})^{2}}} )
+\]
+%
+}
+\end{maplelatex}
+
+\end{maplegroup}
+\begin{maplegroup}
+\begin{mapleinput}
+\mapleinline{active}{1d}{expand(sin(a+b));}{%
+}
+\end{mapleinput}
+
+\mapleresult
+\begin{maplelatex}
+\mapleinline{inert}{2d}{sin(a)*cos(b)+cos(a)*sin(b);}{%
+\[
+\mathrm{sin}(a)\,\mathrm{cos}(b) + \mathrm{cos}(a)\,\mathrm{sin}(
+b)
+\]
+%
+}
+\end{maplelatex}
+
+\end{maplegroup}
+\begin{maplegroup}
+\begin{mapleinput}
+\mapleinline{active}{1d}{factor(x^2+2*x+1);}{%
+}
+\end{mapleinput}
+
+\mapleresult
+\begin{maplelatex}
+\mapleinline{inert}{2d}{(x+1)^2;}{%
+\[
+(\mathit{x\symbol{126}} + 1)^{2}
+\]
+%
+}
+\end{maplelatex}
+
+\end{maplegroup}
+\begin{maplegroup}
+\begin{mapleinput}
+\mapleinline{active}{1d}{expandoff(exp);}{%
+}
+\end{mapleinput}
+
+\mapleresult
+\begin{maplelatex}
+\mapleinline{inert}{2d}{expandoff(exp);}{%
+\[
+\mathrm{expandoff}(\mathrm{exp})
+\]
+%
+}
+\end{maplelatex}
+
+\end{maplegroup}
+\begin{maplegroup}
+\begin{mapleinput}
+\mapleinline{active}{1d}{expand(exp);}{%
+}
+\end{mapleinput}
+
+\mapleresult
+\begin{maplelatex}
+\mapleinline{inert}{2d}{exp;}{%
+\[
+\mathrm{exp}
+\]
+%
+}
+\end{maplelatex}
+
+\end{maplegroup}
+\begin{maplegroup}
+\begin{mapleinput}
+\mapleinline{active}{1d}{expand(exp(a+b));}{%
+}
+\end{mapleinput}
+
+\mapleresult
+\begin{maplelatex}
+\mapleinline{inert}{2d}{exp(a)*exp(b);}{%
+\[
+e^{a}\,e^{b}
+\]
+%
+}
+\end{maplelatex}
+
+\end{maplegroup}
+\begin{maplegroup}
+\begin{mapleinput}
+\mapleinline{active}{1d}{eval;}{%
+}
+\end{mapleinput}
+
+\begin{mapleinput}
+\mapleinline{active}{1d}{evalf;}{%
+}
+\end{mapleinput}
+
+\mapleresult
+\begin{maplelatex}
+\mapleinline{inert}{2d}{eval;}{%
+\[
+\mathit{eval}
+\]
+%
+}
+\end{maplelatex}
+
+\begin{maplelatex}
+\mapleinline{inert}{2d}{evalf;}{%
+\[
+\mathit{evalf}
+\]
+%
+}
+\end{maplelatex}
+
+\end{maplegroup}
+\begin{maplegroup}
+\begin{mapleinput}
+\mapleinline{active}{1d}{expandon(exp);}{%
+}
+\end{mapleinput}
+
+\mapleresult
+\begin{maplelatex}
+\mapleinline{inert}{2d}{expandon(exp);}{%
+\[
+\mathrm{expandon}(\mathrm{exp})
+\]
+%
+}
+\end{maplelatex}
+
+\end{maplegroup}
+\begin{maplegroup}
+\begin{mapleinput}
+\mapleinline{active}{1d}{expand(exp(a+b));}{%
+}
+\end{mapleinput}
+
+\mapleresult
+\begin{maplelatex}
+\mapleinline{inert}{2d}{exp(a)*exp(b);}{%
+\[
+e^{a}\,e^{b}
+\]
+%
+}
+\end{maplelatex}
+
+\end{maplegroup}
+\begin{maplegroup}
+\begin{mapleinput}
+\mapleinline{active}{1d}{expand(exp(a+b));}{%
+}
+\end{mapleinput}
+
+\end{maplegroup}
+\begin{maplegroup}
+\begin{mapleinput}
+\mapleinline{active}{1d}{expandon(exp);}{%
+}
+\end{mapleinput}
+
+\end{maplegroup}
+\begin{maplegroup}
+\begin{mapleinput}
+\mapleinline{active}{1d}{evalf;}{%
+}
+\end{mapleinput}
+
+\mapleresult
+\begin{maplelatex}
+\mapleinline{inert}{2d}{evalf;}{%
+\[
+\mathit{evalf}
+\]
+%
+}
+\end{maplelatex}
+
+\end{maplegroup}
+\begin{maplegroup}
+\begin{mapleinput}
+\mapleinline{active}{1d}{evalf;}{%
+}
+\end{mapleinput}
+
+\mapleresult
+\begin{maplelatex}
+\mapleinline{inert}{2d}{evalf;}{%
+\[
+\mathit{evalf}
+\]
+%
+}
+\end{maplelatex}
+
+\end{maplegroup}
+\begin{maplegroup}
+\begin{mapleinput}
+\mapleinline{active}{1d}{h:= (a,b) -> verify(a,b,equal); # comparing values}{%
+}
+\end{mapleinput}
+
+\mapleresult
+\begin{maplelatex}
+\mapleinline{inert}{2d}{h := (a, b) -> verify(a,b,equal);}{%
+\[
+h := (a, \,b)\rightarrow \mathrm{verify}(a, \,b, \,\mathit{equal}
+)
+\]
+%
+}
+\end{maplelatex}
+
+\end{maplegroup}
+\begin{maplegroup}
+\begin{mapleinput}
+\mapleinline{active}{1d}{h(1,1);}{%
+}
+\end{mapleinput}
+
+\begin{mapleinput}
+\end{mapleinput}
+
+\mapleresult
+\begin{maplelatex}
+\mapleinline{inert}{2d}{true;}{%
+\[
+\mathit{true}
+\]
+%
+}
+\end{maplelatex}
+
+\end{maplegroup}
+\begin{maplegroup}
+\begin{mapleinput}
+\mapleinline{active}{1d}{# Solving equations}{%
+}
+\end{mapleinput}
+
+\end{maplegroup}
+\begin{maplegroup}
+\begin{mapleinput}
+\mapleinline{active}{1d}{solve(x^2+bx+1 = 0, x);}{%
+}
+\end{mapleinput}
+
+\mapleresult
+\begin{maplettyout}
+Warning, solve may be ignoring assumptions on the input variables.
+\end{maplettyout}
+
+\begin{maplelatex}
+\mapleinline{inert}{2d}{(-bx-1)^(1/2), -(-bx-1)^(1/2);}{%
+\[
+\sqrt{ - \mathit{bx} - 1}, \, - \sqrt{ - \mathit{bx} - 1}
+\]
+%
+}
+\end{maplelatex}
+
+\end{maplegroup}
+\begin{maplegroup}
+\begin{mapleinput}
+\mapleinline{active}{1d}{solve(x^2+y^2 = 1 , x);}{%
+}
+\end{mapleinput}
+
+\mapleresult
+\begin{maplettyout}
+Warning, solve may be ignoring assumptions on the input variables.
+\end{maplettyout}
+
+\begin{maplelatex}
+\mapleinline{inert}{2d}{(-y^2+1)^(1/2), -(-y^2+1)^(1/2);}{%
+\[
+\sqrt{ - y^{2} + 1}, \, - \sqrt{ - y^{2} + 1}
+\]
+%
+}
+\end{maplelatex}
+
+\end{maplegroup}
+\begin{maplegroup}
+\begin{mapleinput}
+\mapleinline{active}{1d}{solve(x^2-x-1 = 0, x);}{%
+}
+\end{mapleinput}
+
+\mapleresult
+\begin{maplettyout}
+Warning, solve may be ignoring assumptions on the input variables.
+\end{maplettyout}
+
+\begin{maplelatex}
+\mapleinline{inert}{2d}{1/2*5^(1/2)+1/2, 1/2-1/2*5^(1/2);}{%
+\[
+{\displaystyle \frac {\sqrt{5}}{2}}  + {\displaystyle \frac {1}{2
+}} , \,{\displaystyle \frac {1}{2}}  - {\displaystyle \frac {
+\sqrt{5}}{2}} 
+\]
+%
+}
+\end{maplelatex}
+
+\end{maplegroup}
+\begin{maplegroup}
+\begin{mapleinput}
+\mapleinline{active}{1d}{assume(x, natural);}{%
+}
+\end{mapleinput}
+
+\end{maplegroup}
+\begin{maplegroup}
+\begin{mapleinput}
+\mapleinline{active}{1d}{solve(x^2-x-1 = 0, x);}{%
+}
+\end{mapleinput}
+
+\mapleresult
+\begin{maplettyout}
+Warning, solve may be ignoring assumptions on the input variables.
+\end{maplettyout}
+
+\begin{maplelatex}
+\mapleinline{inert}{2d}{1/2*5^(1/2)+1/2, 1/2-1/2*5^(1/2);}{%
+\[
+{\displaystyle \frac {\sqrt{5}}{2}}  + {\displaystyle \frac {1}{2
+}} , \,{\displaystyle \frac {1}{2}}  - {\displaystyle \frac {
+\sqrt{5}}{2}} 
+\]
+%
+}
+\end{maplelatex}
+
+\end{maplegroup}
+\begin{maplegroup}
+\begin{mapleinput}
+\mapleinline{active}{1d}{solve(x^2+1=0);}{%
+}
+\end{mapleinput}
+
+\mapleresult
+\begin{maplettyout}
+Warning, solve may be ignoring assumptions on the input variables.
+\end{maplettyout}
+
+\begin{maplelatex}
+\mapleinline{inert}{2d}{I, -I;}{%
+\[
+I, \, - I
+\]
+%
+}
+\end{maplelatex}
+
+\end{maplegroup}
+\begin{maplegroup}
+\begin{mapleinput}
+\mapleinline{active}{1d}{assume(x, complex);}{%
+}
+\end{mapleinput}
+
+\end{maplegroup}
+\begin{maplegroup}
+\begin{mapleinput}
+\mapleinline{active}{1d}{solve(x^2+1=0);}{%
+}
+\end{mapleinput}
+
+\mapleresult
+\begin{maplettyout}
+Warning, solve may be ignoring assumptions on the input variables.
+\end{maplettyout}
+
+\begin{maplelatex}
+\mapleinline{inert}{2d}{I, -I;}{%
+\[
+I, \, - I
+\]
+%
+}
+\end{maplelatex}
+
+\end{maplegroup}
+\begin{maplegroup}
+\begin{mapleinput}
+\mapleinline{active}{1d}{I;}{%
+}
+\end{mapleinput}
+
+\mapleresult
+\begin{maplelatex}
+\mapleinline{inert}{2d}{I;}{%
+\[
+I
+\]
+%
+}
+\end{maplelatex}
+
+\end{maplegroup}
+\begin{maplegroup}
+\begin{mapleinput}
+\mapleinline{active}{1d}{i;}{%
+}
+\end{mapleinput}
+
+\mapleresult
+\begin{maplelatex}
+\mapleinline{inert}{2d}{i;}{%
+\[
+i
+\]
+%
+}
+\end{maplelatex}
+
+\end{maplegroup}
+\begin{maplegroup}
+\begin{mapleinput}
+\mapleinline{active}{1d}{i^2 = -1;}{%
+}
+\end{mapleinput}
+
+\mapleresult
+\begin{maplelatex}
+\mapleinline{inert}{2d}{i^2 = -1;}{%
+\[
+i^{2}=-1
+\]
+%
+}
+\end{maplelatex}
+
+\end{maplegroup}
+\begin{maplegroup}
+\begin{mapleinput}
+\mapleinline{active}{1d}{solve(x^2+1 = 0 , x);}{%
+}
+\end{mapleinput}
+
+\mapleresult
+\begin{maplettyout}
+Warning, solve may be ignoring assumptions on the input variables.
+\end{maplettyout}
+
+\begin{maplelatex}
+\mapleinline{inert}{2d}{I, -I;}{%
+\[
+I, \, - I
+\]
+%
+}
+\end{maplelatex}
+
+\end{maplegroup}
+\begin{maplegroup}
+\begin{mapleinput}
+\mapleinline{active}{1d}{|-2|;}{%
+}
+\end{mapleinput}
+
+\mapleresult
+\begin{maplettyout}
+Error, (in -2) 
+\end{maplettyout}
+
+\end{maplegroup}
+\begin{maplegroup}
+\begin{mapleinput}
+\mapleinline{active}{1d}{# HTTP Package}{%
+}
+\end{mapleinput}
+
+\end{maplegroup}
+\begin{maplegroup}
+\begin{mapleinput}
+\mapleinline{active}{1d}{with(HTTP);}{%
+}
+\end{mapleinput}
+
+\mapleresult
+\begin{maplelatex}
+\mapleinline{inert}{2d}{[Code, Form, Get, Post, URLDecode, URLEncode, URLParse];}{%
+\[
+[\mathit{Code}, \,\mathit{Form}, \,\mathit{Get}, \,\mathit{Post}
+, \,\mathit{URLDecode}, \,\mathit{URLEncode}, \,\mathit{URLParse}
+]
+\]
+%
+}
+\end{maplelatex}
+
+\end{maplegroup}
+\begin{maplegroup}
+\begin{mapleinput}
+\mapleinline{active}{1d}{Get("http://google.com");}{%
+}
+\end{mapleinput}
+
+\mapleresult
+\begin{maplelatex}
+\mapleinline{inert}{2d}{301, "<HTML><HEAD><meta http-equiv=\\"content-type\\"
+content=\\"text/html;charset=utf-8\\">\\n<TITLE>301
+Moved</TITLE></HEAD><BODY>\\n<H1>301 Moved</H1>\\nThe document has
+moved\\n<A
+HREF=\\"http://www.google.com/\\">here</A>.\\r\\n</BODY></HTML>\\r\
+\n", TABLE(["Content-Security-Policy-Report-Only" = "object-src
+'none';base-uri 'self';script-src 'nonce-58uPYswnJkIM0PccnBgDWg'
+'strict-dynamic' 'report-sample' 'unsafe-eval' 'unsafe-inline' https:
+http:;report-uri https://csp.withgoogle.com/csp/gws/other-hp",
+"X-Xss-Protection" = "0", "Cache-Control" = "public, max-age=2592000",
+"X-Frame-Options" = "SAMEORIGIN", "Server" = "gws", "Expires" = "Sat,
+02 Nov 2024 09:00:05 GMT", "Content-Length" = "219", "Location" =
+"http://www.google.com/", "Content-Type" = "text/html; charset=UTF-8",
+"Date" = "Thu, 03 Oct 2024 09:00:05 GMT"]);}{%
+\maplemultiline{
+301, \mbox{``<HTML><HEAD><meta~http-equiv=``content-type``~
+content=``text/html;cha$\backslash$} \\
+\mbox{rset=utf-8``>$\backslash$} \\
+\mbox{
+<TITLE>301~Moved</TITLE></HEAD><BODY>$\backslash$} \\
+\mbox{
+<H1>301~Moved</H1>$\backslash$} \\
+\mbox{
+The~document~has~moved$\backslash$} \\
+\mbox{
+<A~HREF=``http://www.google.com/``>here</A>.$\backslash$} \\
+\mbox{
+</BODY></HTML>$\backslash$} \\
+\mbox{
+''}, \mathrm{table(}[\mbox{
+``Content-Security-Policy-Report-Only''}=\mbox{``object-src~'none
+';base$\backslash$} \\
+\mbox{-uri~'self';script-src~'nonce-58uPYswnJkIM0PccnBgDWg'~'
+strict-dynami$\backslash$} \\
+\mbox{c'~'report-sample'~'unsafe-eval'~'unsafe-inline'~https:~
+http:;report-uri~https$\backslash$} \\
+\mbox{://csp.withgoogle.com/csp/gws/other-hp''}, \,\mbox{
+``X-Xss-Protection''}=\mbox{``0''},  \\
+\mbox{``Cache-Control''}=\mbox{``public,~max-age=2592000''},  \\
+\mbox{``X-Frame-Options''}=\mbox{``SAMEORIGIN''}, \,\mbox{
+``Server''}=\mbox{``gws''},  \\
+\mbox{``Expires''}=\mbox{``Sat,~02~Nov~2024~09:00:05~GMT''}, \,
+\mbox{``Content-Length''}=\mbox{``219''},  \\
+\mbox{``Location''}=\mbox{``http://www.google.com/''},  \\
+\mbox{``Content-Type''}=\mbox{``text/html;~charset=UTF-8''},  \\
+\mbox{``Date''}=\mbox{``Thu,~03~Oct~2024~09:00:05~GMT''} \\
+]) }
+%
+}
+\end{maplelatex}
+
+\end{maplegroup}
+\begin{maplegroup}
+\begin{mapleinput}
+\mapleinline{active}{1d}{response  = Get("http://google.com");}{%
+}
+\end{mapleinput}
+
+\mapleresult
+\begin{maplelatex}
+\mapleinline{inert}{2d}{response = (301, "<HTML><HEAD><meta http-equiv=\\"content-type\\"
+content=\\"text/html;charset=utf-8\\">\\n<TITLE>301
+Moved</TITLE></HEAD><BODY>\\n<H1>301 Moved</H1>\\nThe document has
+moved\\n<A
+HREF=\\"http://www.google.com/\\">here</A>.\\r\\n</BODY></HTML>\\r\
+\n", TABLE(["Content-Security-Policy-Report-Only" = "object-src
+'none';base-uri 'self';script-src 'nonce-6ZvYliNGMrRLTPCAB9-ggg'
+'strict-dynamic' 'report-sample' 'unsafe-eval' 'unsafe-inline' https:
+http:;report-uri https://csp.withgoogle.com/csp/gws/other-hp",
+"X-Xss-Protection" = "0", "Cache-Control" = "public, max-age=2592000",
+"X-Frame-Options" = "SAMEORIGIN", "Server" = "gws", "Expires" = "Sat,
+02 Nov 2024 09:00:28 GMT", "Content-Length" = "219", "Location" =
+"http://www.google.com/", "Content-Type" = "text/html; charset=UTF-8",
+"Date" = "Thu, 03 Oct 2024 09:00:28 GMT"]));}{%
+\maplemultiline{
+\mathit{response}=(301, \mbox{``<HTML><HEAD><meta~
+http-equiv=``content-type``~content=``t$\backslash$} \\
+\mbox{ext/html;charset=utf-8``>$\backslash$} \\
+\mbox{
+<TITLE>301~Moved</TITLE></HEAD><BODY>$\backslash$} \\
+\mbox{
+<H1>301~Moved</H1>$\backslash$} \\
+\mbox{
+The~document~has~moved$\backslash$} \\
+\mbox{
+<A~HREF=``http://www.google.com/``>here</A>.$\backslash$} \\
+\mbox{
+</BODY></HTML>$\backslash$} \\
+\mbox{
+''}, \mathrm{table(}[\mbox{
+``Content-Security-Policy-Report-Only''}=\mbox{``object-src~'none
+';base$\backslash$} \\
+\mbox{-uri~'self';script-src~'nonce-6ZvYliNGMrRLTPCAB9-ggg'~'
+strict-dynami$\backslash$} \\
+\mbox{c'~'report-sample'~'unsafe-eval'~'unsafe-inline'~https:~
+http:;report-uri~https$\backslash$} \\
+\mbox{://csp.withgoogle.com/csp/gws/other-hp''}, \,\mbox{
+``X-Xss-Protection''}=\mbox{``0''},  \\
+\mbox{``Cache-Control''}=\mbox{``public,~max-age=2592000''},  \\
+\mbox{``X-Frame-Options''}=\mbox{``SAMEORIGIN''}, \,\mbox{
+``Server''}=\mbox{``gws''},  \\
+\mbox{``Expires''}=\mbox{``Sat,~02~Nov~2024~09:00:28~GMT''}, \,
+\mbox{``Content-Length''}=\mbox{``219''},  \\
+\mbox{``Location''}=\mbox{``http://www.google.com/''},  \\
+\mbox{``Content-Type''}=\mbox{``text/html;~charset=UTF-8''},  \\
+\mbox{``Date''}=\mbox{``Thu,~03~Oct~2024~09:00:28~GMT''} \\
+])) }
+%
+}
+\end{maplelatex}
+
+\end{maplegroup}
+\begin{maplegroup}
+\begin{mapleinput}
+\mapleinline{active}{1d}{response;}{%
+}
+\end{mapleinput}
+
+\mapleresult
+\begin{maplelatex}
+\mapleinline{inert}{2d}{response;}{%
+\[
+\mathit{response}
+\]
+%
+}
+\end{maplelatex}
+
+\end{maplegroup}
+\begin{maplegroup}
+\begin{mapleinput}
+\mapleinline{active}{1d}{int(x^2 , x);}{%
+}
+\end{mapleinput}
+
+\begin{mapleinput}
+\end{mapleinput}
+
+\mapleresult
+\begin{maplelatex}
+\mapleinline{inert}{2d}{1/3*x^3;}{%
+\[
+{\displaystyle \frac {\mathit{x\symbol{126}}^{3}}{3}} 
+\]
+%
+}
+\end{maplelatex}
+
+\end{maplegroup}
+\begin{maplegroup}
+\begin{mapleinput}
+\mapleinline{active}{1d}{Get("http://localhost:8000");}{%
+}
+\end{mapleinput}
+
+\mapleresult
+\begin{maplettyout}
+Error, (in HTTP:-Get) timed out waiting for initial response from
+server
+\end{maplettyout}
+
+\end{maplegroup}
+\begin{maplegroup}
+\begin{mapleinput}
+\mapleinline{active}{1d}{with(Threads);}{%
+}
+\end{mapleinput}
+
+\mapleresult
+\begin{maplelatex}
+\mapleinline{inert}{2d}{[Add, ConditionVariable, Create, Map, Mul, Mutex, Self, Seq, Sleep,
+Task, Wait];}{%
+\[
+[\mathit{Add}, \,\mathit{ConditionVariable}, \,\mathit{Create}, 
+\,\mathit{Map}, \,\mathit{Mul}, \,\mathit{Mutex}, \,\mathit{Self}
+, \,\mathit{Seq}, \,\mathit{Sleep}, \,\mathit{Task}, \,\mathit{
+Wait}]
+\]
+%
+}
+\end{maplelatex}
+
+\end{maplegroup}
+\begin{maplegroup}
+\begin{mapleinput}
+\mapleinline{active}{1d}{Sleep(10);}{%
+}
+\end{mapleinput}
+
+\end{maplegroup}
+\begin{maplegroup}
+\begin{mapleinput}
+\mapleinline{active}{1d}{time();}{%
+}
+\end{mapleinput}
+
+\mapleresult
+\begin{maplelatex}
+\mapleinline{inert}{2d}{.234;}{%
+\[
+0.234
+\]
+%
+}
+\end{maplelatex}
+
+\end{maplegroup}
+\begin{maplegroup}
+\begin{mapleinput}
+\mapleinline{active}{1d}{solve(x^3+3*x^2+x+5=0);}{%
+}
+\end{mapleinput}
+
+\mapleresult
+\begin{maplettyout}
+Warning, solve may be ignoring assumptions on the input variables.
+\end{maplettyout}
+
+\begin{maplelatex}
+\mapleinline{inert}{2d}{-1/3*(81+3*705^(1/2))^(1/3)-2/(81+3*705^(1/2))^(1/3)-1,
+1/6*(81+3*705^(1/2))^(1/3)+1/((81+3*705^(1/2))^(1/3))-1+1/2*I*3^(1/2)*
+(-1/3*(81+3*705^(1/2))^(1/3)+2/(81+3*705^(1/2))^(1/3)),
+1/6*(81+3*705^(1/2))^(1/3)+1/((81+3*705^(1/2))^(1/3))-1-1/2*I*3^(1/2)*
+(-1/3*(81+3*705^(1/2))^(1/3)+2/(81+3*705^(1/2))^(1/3));}{%
+\maplemultiline{
+ - {\displaystyle \frac {(81 + 3\,\sqrt{705})^{(1/3)}}{3}}  - 
+{\displaystyle \frac {2}{(81 + 3\,\sqrt{705})^{(1/3)}}}  - 1, 
+{\displaystyle \frac {(81 + 3\,\sqrt{705})^{(1/3)}}{6}}  + 
+{\displaystyle \frac {1}{(81 + 3\,\sqrt{705})^{(1/3)}}}  - 1 \\
+\mbox{} + {\displaystyle \frac {1}{2}} \,I\,\sqrt{3}\,( - 
+{\displaystyle \frac {(81 + 3\,\sqrt{705})^{(1/3)}}{3}}  + 
+{\displaystyle \frac {2}{(81 + 3\,\sqrt{705})^{(1/3)}}} ), 
+{\displaystyle \frac {(81 + 3\,\sqrt{705})^{(1/3)}}{6}}  \\
+\mbox{} + {\displaystyle \frac {1}{(81 + 3\,\sqrt{705})^{(1/3)}}
+}  - 1 - {\displaystyle \frac {1}{2}} \,I\,\sqrt{3}\,( - 
+{\displaystyle \frac {(81 + 3\,\sqrt{705})^{(1/3)}}{3}}  + 
+{\displaystyle \frac {2}{(81 + 3\,\sqrt{705})^{(1/3)}}} ) }
+%
+}
+\end{maplelatex}
+
+\end{maplegroup}
+\begin{maplegroup}
+\begin{mapleinput}
+\mapleinline{active}{1d}{-1/3*(81+3*705^(1/2))^(1/3)-2/(81+3*705^(1/2))^(1/3)-1,
+1/6*(81+3*705^(1/2))^(1/3)+1/((81+3*705^(1/2))^(1/3))-1+1/2*I*3^(1/2)*
+(-1/3*(81+3*705^(1/2))^(1/3)+2/(81+3*705^(1/2))^(1/3)),
+1/6*(81+3*705^(1/2))^(1/3)+1/((81+3*705^(1/2))^(1/3))-1-1/2*I*3^(1/2)*
+(-1/3*(81+3*705^(1/2))^(1/3)+2/(81+3*705^(1/2))^(1/3));}{%
+}
+\end{mapleinput}
+
+\mapleresult
+\begin{maplelatex}
+\mapleinline{inert}{2d}{-1/3*(81+3*705^(1/2))^(1/3)-2/(81+3*705^(1/2))^(1/3)-1,
+1/6*(81+3*705^(1/2))^(1/3)+1/((81+3*705^(1/2))^(1/3))-1+1/2*I*3^(1/2)*
+(-1/3*(81+3*705^(1/2))^(1/3)+2/(81+3*705^(1/2))^(1/3)),
+1/6*(81+3*705^(1/2))^(1/3)+1/((81+3*705^(1/2))^(1/3))-1-1/2*I*3^(1/2)*
+(-1/3*(81+3*705^(1/2))^(1/3)+2/(81+3*705^(1/2))^(1/3));}{%
+\maplemultiline{
+ - {\displaystyle \frac {(81 + 3\,\sqrt{705})^{(1/3)}}{3}}  - 
+{\displaystyle \frac {2}{(81 + 3\,\sqrt{705})^{(1/3)}}}  - 1, 
+{\displaystyle \frac {(81 + 3\,\sqrt{705})^{(1/3)}}{6}}  + 
+{\displaystyle \frac {1}{(81 + 3\,\sqrt{705})^{(1/3)}}}  - 1 \\
+\mbox{} + {\displaystyle \frac {1}{2}} \,I\,\sqrt{3}\,( - 
+{\displaystyle \frac {(81 + 3\,\sqrt{705})^{(1/3)}}{3}}  + 
+{\displaystyle \frac {2}{(81 + 3\,\sqrt{705})^{(1/3)}}} ), 
+{\displaystyle \frac {(81 + 3\,\sqrt{705})^{(1/3)}}{6}}  \\
+\mbox{} + {\displaystyle \frac {1}{(81 + 3\,\sqrt{705})^{(1/3)}}
+}  - 1 - {\displaystyle \frac {1}{2}} \,I\,\sqrt{3}\,( - 
+{\displaystyle \frac {(81 + 3\,\sqrt{705})^{(1/3)}}{3}}  + 
+{\displaystyle \frac {2}{(81 + 3\,\sqrt{705})^{(1/3)}}} ) }
+%
+}
+\end{maplelatex}
+
+\end{maplegroup}
+\begin{maplegroup}
+\begin{mapleinput}
+\mapleinline{active}{1d}{clear;}{%
+}
+\end{mapleinput}
+
+\mapleresult
+\begin{maplelatex}
+\mapleinline{inert}{2d}{clear;}{%
+\[
+\mathit{clear}
+\]
+%
+}
+\end{maplelatex}
+
+\end{maplegroup}
+\begin{maplegroup}
+\begin{mapleinput}
+\mapleinline{active}{1d}{restart;}{%
+}
+\end{mapleinput}
+
+\end{maplegroup}
+\begin{maplegroup}
+\begin{mapleinput}
+\mapleinline{active}{1d}{for i to 10 do # Loops 
+print(i);
+end do; }{%
+}
+\end{mapleinput}
+
+\mapleresult
+\begin{maplelatex}
+\mapleinline{inert}{2d}{1;}{%
+\[
+1
+\]
+%
+}
+\end{maplelatex}
+
+\begin{maplelatex}
+\mapleinline{inert}{2d}{2;}{%
+\[
+2
+\]
+%
+}
+\end{maplelatex}
+
+\begin{maplelatex}
+\mapleinline{inert}{2d}{3;}{%
+\[
+3
+\]
+%
+}
+\end{maplelatex}
+
+\begin{maplelatex}
+\mapleinline{inert}{2d}{4;}{%
+\[
+4
+\]
+%
+}
+\end{maplelatex}
+
+\begin{maplelatex}
+\mapleinline{inert}{2d}{5;}{%
+\[
+5
+\]
+%
+}
+\end{maplelatex}
+
+\begin{maplelatex}
+\mapleinline{inert}{2d}{6;}{%
+\[
+6
+\]
+%
+}
+\end{maplelatex}
+
+\begin{maplelatex}
+\mapleinline{inert}{2d}{7;}{%
+\[
+7
+\]
+%
+}
+\end{maplelatex}
+
+\begin{maplelatex}
+\mapleinline{inert}{2d}{8;}{%
+\[
+8
+\]
+%
+}
+\end{maplelatex}
+
+\begin{maplelatex}
+\mapleinline{inert}{2d}{9;}{%
+\[
+9
+\]
+%
+}
+\end{maplelatex}
+
+\begin{maplelatex}
+\mapleinline{inert}{2d}{10;}{%
+\[
+10
+\]
+%
+}
+\end{maplelatex}
+
+\end{maplegroup}
+\begin{maplegroup}
+\begin{mapleinput}
+\mapleinline{active}{1d}{assume(x, complex);}{%
+}
+\end{mapleinput}
+
+\end{maplegroup}
+\begin{maplegroup}
+\begin{mapleinput}
+\mapleinline{active}{1d}{solve(x^2-3*x+4);}{%
+}
+\end{mapleinput}
+
+\mapleresult
+\begin{maplettyout}
+Warning, solve may be ignoring assumptions on the input variables.
+\end{maplettyout}
+
+\begin{maplelatex}
+\mapleinline{inert}{2d}{3/2+1/2*I*7^(1/2), 3/2-1/2*I*7^(1/2);}{%
+\[
+{\displaystyle \frac {3}{2}}  + {\displaystyle \frac {1}{2}} \,I
+\,\sqrt{7}, \,{\displaystyle \frac {3}{2}}  - {\displaystyle 
+\frac {1}{2}} \,I\,\sqrt{7}
+\]
+%
+}
+\end{maplelatex}
+
+\end{maplegroup}
+\begin{maplegroup}
+\begin{mapleinput}
+\mapleinline{active}{1d}{solve(x^2-3*x+4>=0);}{%
+}
+\end{mapleinput}
+
+\mapleresult
+\begin{maplettyout}
+Warning, solve may be ignoring assumptions on the input variables.
+\end{maplettyout}
+
+\begin{maplelatex}
+\mapleinline{inert}{2d}{x;}{%
+\[
+\mathit{x\symbol{126}}
+\]
+%
+}
+\end{maplelatex}
+
+\end{maplegroup}
+\begin{maplegroup}
+\begin{mapleinput}
+\mapleinline{active}{1d}{?}{%
+}
+\end{mapleinput}
+
+\end{maplegroup}
+\begin{maplegroup}
+\begin{mapleinput}
+\mapleinline{active}{1d}{inf;}{%
+}
+\end{mapleinput}
+
+\mapleresult
+\begin{maplelatex}
+\mapleinline{inert}{2d}{inf;}{%
+\[
+\mathit{inf}
+\]
+%
+}
+\end{maplelatex}
+
+\end{maplegroup}
+\begin{maplegroup}
+\begin{mapleinput}
+\mapleinline{active}{1d}{infinity;}{%
+}
+\end{mapleinput}
+
+\mapleresult
+\begin{maplelatex}
+\mapleinline{inert}{2d}{infinity;}{%
+\[
+\infty 
+\]
+%
+}
+\end{maplelatex}
+
+\end{maplegroup}
+\begin{maplegroup}
+\begin{mapleinput}
+\mapleinline{active}{1d}{(-infinity, 4) union (6,7);}{%
+}
+\end{mapleinput}
+
+\mapleresult
+\begin{maplettyout}
+Error, invalid input: union received -infinity, which is not valid for
+its 1st argument
+\end{maplettyout}
+
+\end{maplegroup}
+\begin{maplegroup}
+\begin{mapleinput}
+\mapleinline{active}{1d}{?}{%
+}
+\end{mapleinput}
+
+\end{maplegroup}
+\begin{maplegroup}
+\begin{mapleinput}
+\mapleinline{active}{1d}{RealRange(Open(-infinity), Open(2));}{%
+}
+\end{mapleinput}
+
+\mapleresult
+\begin{maplelatex}
+\mapleinline{inert}{2d}{RealRange(-infinity,Open(2));}{%
+\[
+\mathrm{RealRange}( - \infty , \,\mathrm{Open}(2))
+\]
+%
+}
+\end{maplelatex}
+
+\end{maplegroup}
+\begin{maplegroup}
+\begin{mapleinput}
+\end{mapleinput}
+
+\end{maplegroup}
+\end{document}
+%% End of Maple 2015.0 Output
